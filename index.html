@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+		<meta property="og:title" content="Muhammad Fahri Abdurohman">
+<meta property="og:description" content="Haii Waluhh! Selamat Datang Di Website Catatan Pengeluaran By Fahri!! Catat semua pengeluaran mu disini, aman dan nyaman, data tidak akan hilang sekalipun berbeda perangkat, masukan saja email dan sandi yang sama untuk melihat pengeluaranmu di perangkat berbeda">
+<meta property="og:image" content="https://i.ibb.co.com/Gw8RgLR/ebf39197-e249-4e43-8c3c-8dd950ae1a12.jpg">
+<meta property="twitter:image" content="https://i.ibb.co.com/Gw8RgLR/ebf39197-e249-4e43-8c3c-8dd950ae1a12.jpg">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaCashID By Fahri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #03060f;
+            --card-bg: rgba(9, 15, 30, 0.75);
+            --card-solid: #070d1a;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --primary: #10b981;
+            --primary-glow: rgba(16, 185, 129, 0.15);
+            --text-dark: #f8fafc;
+            --text-muted: #475569;
+            --accent-red: #f43f5e;
+            --accent-orange: #fb923c;
+            --accent-blue: #38bdf8;
+            --radius: 24px;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0; padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at top center, rgba(16, 185, 129, 0.06), transparent 500px);
+            color: var(--text-dark);
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+            background: var(--card-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75);
+            margin-bottom: 40px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Top Brand Navigation */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.01);
+            padding: 12px 14px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .logo-facash {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+        }
+        .logo-facash span {
+            font-size: 9px;
+            display: block;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Premium Profile Interface Module */
+        .profile-node-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-color);
+            padding: 14px 16px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-left-cluster {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+        .avatar-uploader-wrapper {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
+            overflow: hidden;
+            background: #0d1527;
+            flex-shrink: 0;
+        }
+        .avatar-uploader-wrapper:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .avatar-placeholder-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+        .avatar-overlay-hint {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white; font-size: 7px; font-weight: 800;
+            text-align: center; padding: 2px 0;
+            opacity: 0; transition: var(--transition);
+        }
+        .avatar-uploader-wrapper:hover .avatar-overlay-hint { opacity: 1; }
+        
+        .profile-info-text {
+            min-width: 0;
+        }
+        .profile-info-text h4 {
+            font-size: 14px; font-weight: 700; color: var(--text-dark);
+            display: flex; align-items: center; gap: 6px;
+        }
+        .profile-info-text h4 span {
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .profile-info-text p {
+            font-size: 10px; color: var(--text-muted); margin-top: 1px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+
+        .btn-action-icon {
+            background: none; border: none; color: var(--text-muted);
+            cursor: pointer; font-size: 12px; transition: var(--transition);
+            flex-shrink: 0;
+        }
+        .btn-action-icon:hover { color: var(--primary); }
+
+        .btn-logout {
+            background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.1);
+            color: var(--accent-red); padding: 6px 12px; border-radius: 8px;
+            font-size: 10px; font-weight: 800; text-transform: uppercase;
+            cursor: pointer; transition: var(--transition); flex-shrink: 0;
+        }
+        .btn-logout:hover { background: rgba(244, 63, 94, 0.12); }
+
+        /* Access Gateway */
+        .auth-box h2 { text-align: center; margin-bottom: 20px; font-size: 18px; font-weight: 800; }
+        .google-btn {
+            background: rgba(255, 255, 255, 0.02); color: white; border: 1px solid var(--border-color);
+            padding: 12px; font-size: 13px; font-weight: 700; border-radius: 12px; cursor: pointer;
+            width: 100%; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .auth-toggle { text-align: center; margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+        .auth-toggle span { color: var(--primary); cursor: pointer; font-weight: 700; }
+
+        /* Simetris Dashboard Cards Matrix */
+        .matrix-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .matrix-row-split {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .matrix-card {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-color);
+            padding: 14px 12px; /* Pad di-kompres sedikit agar muat angka besar */
+            border-radius: 18px;
+            transition: var(--transition);
+            min-width: 0;
+            overflow: hidden;
+        }
+        .matrix-card p { 
+            font-size: 9px; 
+            color: var(--text-muted); 
+            text-transform: uppercase; 
+            font-weight: 700; 
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* FIX: Skala Ukuran Font Dinamis (Anti-Jebol jika nominal jutaan/milyaran) */
+        .matrix-card h3 { 
+            font-size: clamp(14px, 4vw, 18px); 
+            margin-top: 5px; 
+            font-weight: 800; 
+            transition: var(--transition);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: -0.3px;
+        }
+        
+        .card-header-action { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; }
+        .card-header-action div { min-width: 0; flex: 1; }
+        .btn-card-trigger { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 13px; transition: var(--transition); margin-top: -2px; }
+        .btn-card-trigger:hover { color: var(--primary); }
+
+        .status-badge {
+            font-size: 8px; font-weight: 800; padding: 2px 6px; border-radius: 5px; margin-top: 6px; display: inline-block; text-transform: uppercase;
+        }
+
+        /* Savings Engine UI */
+        .savings-box {
+            background: rgba(56, 189, 248, 0.015); border: 1px solid rgba(56, 189, 248, 0.1);
+            padding: 16px; border-radius: 18px; margin-bottom: 20px;
+        }
+        .savings-flex { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; margin-bottom: 8px; }
+        .bar-container { height: 6px; background: rgba(255,255,255,0.03); border-radius: 10px; overflow: hidden; margin-bottom: 8px; }
+        .bar-fill { height: 100%; background: var(--accent-blue); width: 0%; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 10px rgba(56, 189, 248, 0.3); }
+
+        /* Unified Form Data Dispatcher */
+        form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .form-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 12px; }
+        .form-unit { display: flex; flex-direction: column; gap: 5px; }
+        label { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+        input, select {
+            padding: 12px; border: 1px solid var(--border-color); background-color: rgba(0, 0, 0, 0.25);
+            color: white; border-radius: 12px; font-size: 12px; outline: none; transition: var(--transition);
+            width: 100%;
+        }
+        input:focus, select:focus { border-color: var(--primary); background-color: rgba(0, 0, 0, 0.35); }
+
+        button[type="submit"] {
+            background: var(--primary); color: #03060f; border: none; padding: 13px;
+            border-radius: 12px; font-size: 13px; font-weight: 800; cursor: pointer; margin-top: 2px; transition: var(--transition);
+        }
+        button[type="submit"]:hover { filter: brightness(1.1); transform: translateY(-0.5px); }
+
+        /* Analytics Composition Panel */
+        .analytics-wrap {
+            background: rgba(255,255,255,0.01); border: 1px solid var(--border-color);
+            padding: 16px; border-radius: 18px; margin-bottom: 20px;
+        }
+        .analytics-wrap h5 { font-size: 11px; color: var(--text-muted); margin-bottom: 12px; font-weight: 700; }
+        .composite-chart { display: flex; height: 6px; border-radius: 10px; overflow: hidden; background: rgba(255,255,255,0.03); margin-bottom: 12px; }
+        .chart-chunk { height: 100%; transition: width 0.4s ease; }
+        .chart-legends-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; font-size: 10px; }
+        .legend-node { display: flex; align-items: center; gap: 6px; color: var(--text-muted); }
+        .legend-circle { width: 6px; height: 6px; border-radius: 50%; }
+
+        /* Ledger Logs Controls & Filtering */
+        .logs-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .logs-head h4 { font-size: 13px; font-weight: 800; }
+        #boncos-badge { font-size: 9px; font-weight: 700; color: var(--accent-red); background: rgba(244,63,94,0.08); padding: 2px 6px; border-radius: 5px; }
+        
+        .search-container { position: relative; display: flex; align-items: center; margin-bottom: 12px; }
+        .search-container i { position: absolute; left: 12px; color: var(--text-muted); font-size: 11px; }
+        .search-field { width: 100%; padding: 10px 10px 10px 34px; font-size: 11px; border-radius: 10px; background: rgba(0,0,0,0.2); }
+
+        .tab-scroller { display: flex; gap: 5px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 12px; }
+        .tab-scroller::-webkit-scrollbar { height: 0px; }
+        .tab-item {
+            padding: 6px 12px; font-size: 10px; font-weight: 700; border-radius: 8px;
+            background: rgba(255,255,255,0.01); color: var(--text-muted); border: 1px solid var(--border-color); cursor: pointer; white-space: nowrap; transition: var(--transition);
+        }
+        .tab-item.active { background: rgba(16, 185, 129, 0.08); color: var(--primary); border-color: var(--primary); }
+
+        /* Database Rendered Sequence */
+        .ledger-box { list-style: none; max-height: 190px; overflow-y: auto; }
+        .ledger-box::-webkit-scrollbar { width: 2px; }
+        .ledger-box::-webkit-scrollbar-thumb { background: var(--border-color); }
+
+        .ledger-card {
+            background: rgba(255, 255, 255, 0.01); border: 1px solid var(--border-color);
+            padding: 12px 14px; margin-bottom: 6px; border-radius: 10px;
+            display: flex; justify-content: space-between; align-items: center;
+            animation: slideUp 0.25s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ledger-left { flex: 1; min-width: 0; padding-right: 8px; }
+        .ledger-left .item-title { font-weight: 700; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .ledger-left .item-sub { font-size: 9px; color: var(--text-muted); margin-top: 2px; display: flex; gap: 5px; }
+        .ledger-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        .ledger-right .item-val { font-weight: 800; color: var(--accent-red); font-size: 12px; white-space: nowrap; }
+        .btn-trash { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; padding: 4px; transition: var(--transition); }
+        .btn-trash:hover { color: var(--accent-red); }
+        
+        .empty-view-wrapper {
+            border: 1px dashed var(--border-color); border-radius: 12px; padding: 26px 12px;
+            text-align: center; color: var(--text-muted); font-size: 11px;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+        }
+        .empty-view-wrapper i { font-size: 18px; color: rgba(255,255,255,0.06); }
+
+        /* Toast Popup Notifier System */
+        .toast-popup {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: #070d1a; border: 1px solid var(--border-color); padding: 12px 18px;
+            border-radius: 12px; display: flex; align-items: center; gap: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            z-index: 10000; opacity: 0; transition: var(--transition);
+        }
+        .toast-popup.active { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .toast-popup span { font-size: 11px; font-weight: 600; }
+        .btn-undo-toast { background: var(--primary); color: #03060f; border: none; padding: 4px 8px; font-size: 9px; font-weight: 800; border-radius: 5px; cursor: pointer; }
+
+        #loading-screen {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: #03060f; display: flex; flex-direction: column; gap: 12px; justify-content: center; align-items: center;
+            z-index: 9999; font-weight: 700; color: var(--primary); font-size: 12px; letter-spacing: 0.6px;
+        }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 26px;"></i>
+        <div>FaCashID Core Cloud Syncing...</div>
+    </div>
+
+    <div id="system-toast" class="toast-popup">
+        <span id="toast-message">Proses berhasil</span>
+        <button class="btn-undo-toast hidden" id="toast-undo-action">UNDO</button>
+    </div>
+
+    <div class="container">
+        <div class="top-bar">
+            <div class="logo-facash"><i class="fa-solid fa-wallet"></i> FaCashID <span>By Fahri</span></div>
+            <button class="btn-edit" id="btn-export-csv" style="font-size:11px; font-weight:700;"><i class="fa-solid fa-file-export"></i> CSV</button>
+        </div>
+
+        <div id="auth-section" class="auth-box hidden">
+            <h2>Cloud Sync Gateway</h2>
+            <form id="auth-form">
+                <div class="form-unit">
+                    <label>Email Node</label>
+                    <input type="email" id="auth-email" placeholder="emailmaneh@gmail.com" required>
+                </div>
+                <div class="form-unit">
+                    <label>Sandi Enkripsi</label>
+                    <input type="password" id="auth-password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" id="auth-submit-btn">Otorisasi Akses</button>
+            </form>
+            <div style="text-align: center; color: var(--text-muted); font-size: 9px; font-weight: 800; margin: 4px 0;">OR CONNECT</div>
+            <button class="google-btn" id="google-login-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_活跃_Logo.svg" alt="Google" width="12"> Masuk Via Google
+            </button>
+            <div class="auth-toggle">
+                <p id="auth-toggle-text">Belum ada alokasi cloud? <span id="switch-auth">Daftar Node</span></p>
+            </div>
+        </div>
+
+        <div id="main-dashboard" class="hidden">
+            
+            <div class="profile-node-card">
+                <div class="profile-left-cluster">
+                    <input type="file" id="avatar-file-input" accept="image/*" class="hidden">
+                    <div class="avatar-uploader-wrapper" id="avatar-trigger-zone">
+                        <i class="fa-solid fa-user avatar-placeholder-icon" id="avatar-default-icon"></i>
+                        <img src="" alt="Avatar" class="avatar-img hidden" id="avatar-display-image">
+                        <div class="avatar-overlay-hint">GANTI</div>
+                    </div>
+                    <div class="profile-info-text">
+                        <h4>
+                            <span id="welcome-user">Master Node</span>
+                            <button class="btn-action-icon" id="btn-edit-username"><i class="fa-solid fa-pen-to-square"></i></button>
+                        </h4>
+                        <p id="user-node-email">node-cloud@facash.id</p>
+                    </div>
+                </div>
+                <button class="btn-logout" id="btn-logout">Exit</button>
+            </div>
+
+            <div class="matrix-stack">
+                <div class="matrix-card" id="card-liquidity">
+                    <div class="card-header-action">
+                        <div>
+                            <p>Likuiditas Dompet Riil</p>
+                            <h3 id="wallet-balance" style="color: var(--primary);">Rp 0</h3>
+                        </div>
+                        <button class="btn-card-trigger" id="btn-set-income"><i class="fa-solid fa-circle-plus"></i></button>
+                    </div>
+                </div>
+                <div class="matrix-row-split">
+                    <div class="matrix-card" id="card-burned">
+                        <div class="card-header-action">
+                            <div>
+                                <p>Total Pengeluaran</p>
+                                <h3 id="total-amount">Rp 0</h3>
+                            </div>
+                        </div>
+                        <div id="budget-status" class="status-badge hidden">Aman</div>
+                    </div>
+                    <div class="matrix-card">
+                        <div class="card-header-action">
+                            <div>
+                                <p>Safety Limit</p>
+                                <h3 id="limit-amount">Rp 0</h3>
+                            </div>
+                            <button class="btn-card-trigger" id="btn-set-limit"><i class="fa-solid fa-sliders"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="savings-box">
+                <div class="savings-flex">
+                    <span> Tambahkan Target Tabungan 🎯</span>
+                    <span id="goal-percentage-text">0%</span>
+                </div>
+                <div class="bar-container">
+                    <div class="bar-fill" id="goal-progress-bar"></div>
+                </div>
+                <div style="display:flex; justify-content: space-between; font-size:9px; color: var(--text-muted);">
+                    <span id="goal-target-display">Target: Rp 0</span>
+                    <button id="btn-set-goal" style="background:none; border:none; color:var(--accent-blue); cursor:pointer; font-weight:700;">ATUR TARGET</button>
+                </div>
+            </div>
+
+            <div id="analytics-box" class="analytics-wrap hidden">
+                <h5><i class="fa-solid fa-chart-pie"></i> Komposisi Pembagian Dana Terpakai</h5>
+                <div class="composite-chart" id="progress-container"></div>
+                <div class="chart-legends-grid" id="legend-grid"></div>
+            </div>
+
+            <form id="expense-form">
+                <div class="form-unit">
+                    <label>Deskripsi Transaksi</label>
+                    <input type="text" id="expense-name" placeholder="Contoh: Makan Siang Nasi Padang" required>
+                </div>
+                <div class="form-split">
+                    <div class="form-unit">
+                        <label> Kategori</label>
+                        <select id="expense-category" required>
+                            <option value="" disabled selected>Pilih Kategori</option>
+                            <option value="Kuliner">🍔 Kuliner</option>
+                            <option value="Transport">🚗 Transport</option>
+                            <option value="Hiburan">🎬 Hiburan</option>
+                            <option value="Tagihan">💡 Tagihan</option>
+                            <option value="Lainnya">✨ Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="form-unit">
+                        <label>Nominal Harga</label>
+                        <input type="text" id="expense-amount" placeholder="Rp 0" required>
+                    </div>
+                </div>
+                <button type="submit">Catat Transaksi</button>
+            </form>
+
+            <div class="logs-head">
+                <h4>Database Logs</h4>
+                <span id="boncos-badge" class="hidden">Boncos Ku -</span>
+            </div>
+            
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-bar" class="search-field" placeholder="Query keyword log...">
+            </div>
+
+            <div class="tab-scroller" id="category-filter-tabs">
+                <button class="tab-item active" data-filter="Semua">Semua Waktu</button>
+                <button class="tab-item" data-filter="HariIni">Hari Ini</button>
+                <button class="tab-item" data-filter="Kuliner">🍔 Kuliner</button>
+                <button class="tab-item" data-filter="Transport">🚗 Transport</button>
+                <button class="tab-item" data-filter="Hiburan">🎬 Hiburan</button>
+                <button class="tab-item" data-filter="Tagihan">💡 Tagihan</button>
+                <button class="tab-item" data-filter="Lainnya">✨ Lainnya</button>
+            </div>
+
+            <ul id="history-list" class="ledger-box"></ul>
+        </div>
+<center><h6>Data mu tidak akan hilang,walaupun kamu login di perangkat berbeda,cukup masukan email dan sandi yang sama,pengeluaran anda akan muncul </h6></center>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider, updateProfile } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getDatabase, ref, set, push, onValue, remove, update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA9YVs8_LaDfMbzS2VEuznG-99VWeogESA",
+            authDomain: "facashid-96c90.firebaseapp.com",
+            databaseURL: "https://facashid-96c90-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "facashid-96c90",
+            storageBucket: "facashid-96c90.firebasestorage.app",
+            messagingSenderId: "27710951816",
+            appId: "1:27710951816:web:a9d97134027555f0e36a3d"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getDatabase(app);
+        const provider = new GoogleAuthProvider();
+
+        const loadingScreen = document.getElementById('loading-screen');
+        const authSection = document.getElementById('auth-section');
+        const mainDashboard = document.getElementById('main-dashboard');
+        const authForm = document.getElementById('auth-form');
+        const authEmail = document.getElementById('auth-email');
+        const authPassword = document.getElementById('auth-password');
+        const authSubmitBtn = document.getElementById('auth-submit-btn');
+        const welcomeUser = document.getElementById('welcome-user');
+        const userNodeEmail = document.getElementById('user-node-email');
+        const btnEditUsername = document.getElementById('btn-edit-username');
+
+        const avatarTriggerZone = document.getElementById('avatar-trigger-zone');
+        const avatarFileInput = document.getElementById('avatar-file-input');
+        const avatarDefaultIcon = document.getElementById('avatar-default-icon');
+        const avatarDisplayImage = document.getElementById('avatar-display-image');
+        
+        const expenseForm = document.getElementById('expense-form');
+        const expenseName = document.getElementById('expense-name');
+        const expenseCategory = document.getElementById('expense-category');
+        const expenseAmount = document.getElementById('expense-amount');
+        const historyList = document.getElementById('history-list');
+        const totalAmountText = document.getElementById('total-amount');
+        const limitAmountText = document.getElementById('limit-amount');
+        const walletBalanceText = document.getElementById('wallet-balance');
+        const budgetStatus = document.getElementById('budget-status');
+        const boncosBadge = document.getElementById('boncos-badge');
+        
+        const btnSetLimit = document.getElementById('btn-set-limit');
+        const btnSetIncome = document.getElementById('btn-set-income');
+        const btnExportCsv = document.getElementById('btn-export-csv');
+        const searchBar = document.getElementById('search-bar');
+        const categoryFilterTabs = document.getElementById('category-filter-tabs');
+        
+        const analyticsBox = document.getElementById('analytics-box');
+        const progressContainer = document.getElementById('progress-container');
+        const legendGrid = document.getElementById('legend-grid');
+
+        const btnSetGoal = document.getElementById('btn-set-goal');
+        const goalProgressBar = document.getElementById('goal-progress-bar');
+        const goalPercentageText = document.getElementById('goal-percentage-text');
+        const goalTargetDisplay = document.getElementById('goal-target-display');
+
+        const systemToast = document.getElementById('system-toast');
+        const toastMessage = document.getElementById('toast-message');
+        const toastUndoAction = document.getElementById('toast-undo-action');
+
+        const cardLiquidity = document.getElementById('card-liquidity');
+        const cardBurned = document.getElementById('card-burned');
+
+        const categoryColors = { "Kuliner": "#fb923c", "Transport": "#38bdf8", "Hiburan": "#f43f5e", "Tagihan": "#818cf8", "Lainnya": "#e2e8f0" };
+        
+        let isLoginMode = true;
+        let userUID = null;
+        let globalExpenses = []; 
+        let currentBudgetLimit = 0;
+        let totalIncomeRef = 0;
+        let savingsGoalRef = 0;
+        let activeFilter = "Semua";
+        let liveSearchQuery = "";
+        let lastDeletedItemCache = null;
+
+        setTimeout(() => { if (loadingScreen && !loadingScreen.classList.contains('hidden') && !userUID) { loadingScreen.classList.add('hidden'); authSection.classList.remove('hidden'); } }, 4000);
+
+        expenseAmount.addEventListener('input', (e) => {
+            let val = e.target.value.replace(/\D/g, "");
+            if (val === "") { e.target.value = ""; return; }
+            e.target.value = "Rp " + new Intl.NumberFormat('id-ID').format(parseInt(val));
+        });
+
+        function triggerToast(message, showUndo = false) {
+            toastMessage.innerText = message;
+            if(showUndo) { toastUndoAction.classList.remove('hidden'); } else { toastUndoAction.classList.add('hidden'); }
+            systemToast.classList.add('active');
+            setTimeout(() => systemToast.classList.remove('active'), 4000);
+        }
+
+        function initToggleAuth() {
+            const el = document.getElementById('switch-auth');
+            if (!el) return;
+            el.addEventListener('click', () => {
+                isLoginMode = !isLoginMode;
+                authSubmitBtn.innerText = isLoginMode ? "Otorisasi Akses" : "Deploy Data Node";
+                document.getElementById('auth-toggle-text').innerHTML = isLoginMode ? "Belum ada alokasi cloud? <span id='switch-auth'>Daftar Node</span>" : "Sudah terdaftar? <span id='switch-auth'>Gateway Log In</span>";
+                initToggleAuth();
+            });
+        }
+        initToggleAuth();
+
+        authForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (isLoginMode) {
+                signInWithEmailAndPassword(auth, authEmail.value.trim(), authPassword.value).catch(err => triggerToast("Error: " + err.message));
+            } else {
+                createUserWithEmailAndPassword(auth, authEmail.value.trim(), authPassword.value).then((userCredential) => {
+                    const defaultName = authEmail.value.split('@')[0];
+                    updateProfile(userCredential.user, { displayName: defaultName }).then(() => {
+                        set(ref(db, 'users/' + userCredential.user.uid), { budgetLimit: 0, totalIncome: 0, savingsGoal: 0, username: defaultName });
+                        triggerToast("Node Vault Configured!");
+                        isLoginMode = false;
+                        if(document.getElementById('switch-auth')) document.getElementById('switch-auth').click();
+                    });
+                }).catch(err => triggerToast("Fail: " + err.message));
+            }
+        });
+
+        document.getElementById('google-login-btn').addEventListener('click', () => {
+            signInWithPopup(auth, provider).then((result) => {
+                update(ref(db, 'users/' + result.user.uid), { username: result.user.displayName });
+            }).catch(err => triggerToast("OAuth Error: " + err.message));
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', () => signOut(auth));
+
+        function formatRupiah(val) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(val);
+        }
+
+        onAuthStateChanged(auth, (user) => {
+            loadingScreen.classList.add('hidden');
+            if (user) {
+                userUID = user.uid;
+                authSection.classList.add('hidden');
+                mainDashboard.classList.remove('hidden');
+                welcomeUser.innerText = user.displayName || user.email.split('@')[0];
+                userNodeEmail.innerText = user.email || "OAuth Verified Node";
+                
+                const savedAvatar = localStorage.getItem(`avatar_${userUID}`);
+                if (savedAvatar) {
+                    avatarDefaultIcon.classList.add('hidden');
+                    avatarDisplayImage.src = savedAvatar;
+                    avatarDisplayImage.classList.remove('hidden');
+                } else {
+                    avatarDefaultIcon.classList.remove('hidden');
+                    avatarDisplayImage.classList.add('hidden');
+                }
+
+                listenToUserData();
+            } else {
+                userUID = null;
+                mainDashboard.classList.add('hidden');
+                authSection.classList.remove('hidden');
+            }
+        });
+
+        avatarTriggerZone.addEventListener('click', () => {
+            avatarFileInput.click();
+        });
+
+        avatarFileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                if (file.size > 2 * 1024 * 1024) {
+                    return triggerToast("Ukuran foto maksimal 2MB!");
+                }
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const base64String = event.target.result;
+                    localStorage.setItem(`avatar_${userUID}`, base64String);
+                    avatarDefaultIcon.classList.add('hidden');
+                    avatarDisplayImage.src = base64String;
+                    avatarDisplayImage.classList.remove('hidden');
+                    triggerToast("Foto profil ter-update!");
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        btnEditUsername.addEventListener('click', () => {
+            if (!auth.currentUser) return;
+            const newName = prompt("Ubah Kode Penamaan Node Pengguna:", welcomeUser.innerText);
+            if (newName && newName.trim() !== "") {
+                updateProfile(auth.currentUser, { displayName: newName.trim() }).then(() => {
+                    update(ref(db, `users/${userUID}`), { username: newName.trim() });
+                    welcomeUser.innerText = newName.trim();
+                    triggerToast("Nama Vault Sinkron!");
+                }).catch(err => alert(err.message));
+            }
+        });
+
+        function listenToUserData() {
+            if (!userUID) return;
+            onValue(ref(db, 'users/' + userUID), (snapshot) => {
+                const data = snapshot.val();
+                globalExpenses = [];
+                let total = 0;
+                let categoryTotals = { "Kuliner": 0, "Transport": 0, "Hiburan": 0, "Tagihan": 0, "Lainnya": 0 };
+                
+                currentBudgetLimit = (data && data.budgetLimit) ? data.budgetLimit : 0;
+                totalIncomeRef = (data && data.totalIncome) ? data.totalIncome : 0;
+                savingsGoalRef = (data && data.savingsGoal) ? data.savingsGoal : 0;
+                
+                limitAmountText.innerText = formatRupiah(currentBudgetLimit);
+                goalTargetDisplay.innerText = `Target: ${formatRupiah(savingsGoalRef)}`;
+
+                if (data && data.username) welcomeUser.innerText = data.username;
+
+                if (data && data.expenses) {
+                    analyticsBox.classList.remove('hidden');
+                    Object.keys(data.expenses).forEach((key) => {
+                        const item = data.expenses[key];
+                        total += item.amount;
+                        globalExpenses.push({ id: key, name: item.name, category: item.category, amount: item.amount, date: item.date || '-' });
+                        if(categoryTotals[item.category] !== undefined) categoryTotals[item.category] += item.amount;
+                    });
+                } else { analyticsBox.classList.add('hidden'); }
+
+                totalAmountText.innerText = formatRupiah(total);
+                const finalWalletBalance = totalIncomeRef - total;
+                walletBalanceText.innerText = formatRupiah(finalWalletBalance);
+
+                if(finalWalletBalance < 0) {
+                    cardLiquidity.style.borderColor = "var(--accent-red)";
+                    cardLiquidity.style.boxShadow = "rgba(244, 63, 94, 0.06) 0px 0px 20px";
+                } else {
+                    cardLiquidity.style.borderColor = "var(--border-color)";
+                    cardLiquidity.style.boxShadow = "none";
+                }
+
+                calculateTopBoncos(categoryTotals);
+                calculateSavings(finalWalletBalance);
+
+                if (currentBudgetLimit > 0) {
+                    budgetStatus.classList.remove('hidden');
+                    if (total > currentBudgetLimit) {
+                        budgetStatus.innerText = "OVER BUDGET";
+                        budgetStatus.style.color = "var(--accent-red)";
+                        budgetStatus.style.background = "rgba(244, 63, 94, 0.1)";
+                        cardBurned.style.borderColor = "var(--accent-red)";
+                    } else if (total > currentBudgetLimit * 0.8) {
+                        budgetStatus.innerText = "WARNING LIMIT";
+                        budgetStatus.style.color = "var(--accent-orange)";
+                        budgetStatus.style.background = "rgba(251, 146, 60, 0.1)";
+                        cardBurned.style.borderColor = "var(--accent-orange)";
+                    } else {
+                        budgetStatus.innerText = "SAFE NODE";
+                        budgetStatus.style.color = "var(--primary)";
+                        budgetStatus.style.background = "rgba(16, 185, 129, 0.1)";
+                        cardBurned.style.borderColor = "var(--border-color)";
+                    }
+                } else { budgetStatus.classList.add('hidden'); cardBurned.style.borderColor = "var(--border-color)"; }
+
+                renderChart(categoryTotals, total);
+                renderFilteredHistory();
+            });
+        }
+
+        function calculateTopBoncos(categoryTotals) {
+            let maxCat = ""; let maxVal = 0;
+            Object.keys(categoryTotals).forEach(cat => { if (categoryTotals[cat] > maxVal) { maxVal = categoryTotals[cat]; maxCat = cat; } });
+            if (maxVal > 0) {
+                boncosBadge.classList.remove('hidden');
+                boncosBadge.innerText = `🔥 Boncos Ku ${maxCat}`;
+            } else { boncosBadge.classList.add('hidden'); }
+        }
+
+        function calculateSavings(currentBalance) {
+            if (savingsGoalRef > 0 && currentBalance > 0) {
+                let pct = (currentBalance / savingsGoalRef) * 100;
+                if (pct > 100) pct = 100;
+                goalProgressBar.style.width = `${pct}%`;
+                goalPercentageText.innerText = `${pct.toFixed(0)}%`;
+            } else { goalProgressBar.style.width = `0%`; goalPercentageText.innerText = `0%`; }
+        }
+
+        function renderFilteredHistory() {
+            historyList.innerHTML = '';
+            const todayStr = new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'short' });
+
+            const filtered = globalExpenses.filter(exp => {
+                let matchFilter = true;
+                if (activeFilter === "HariIni") { matchFilter = exp.date.includes(todayStr); }
+                else if (activeFilter !== "Semua") { matchFilter = (exp.category === activeFilter); }
+                return matchFilter && exp.name.toLowerCase().includes(liveSearchQuery.toLowerCase());
+            });
+
+            if (filtered.length === 0) {
+                historyList.innerHTML = `
+                    <div class="empty-view-wrapper">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <div>Tidak ada rekaman transaksi data node yang cocok.</div>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const li = document.createElement('li');
+                li.classList.add('ledger-card');
+                li.innerHTML = `
+                    <div class="ledger-left">
+                        <div class="item-title">${item.name}</div>
+                        <div class="item-sub">
+                            <span style="color:${categoryColors[item.category]}">${item.category}</span>
+                            <span>•</span><span>${item.date}</span>
+                        </div>
+                    </div>
+                    <div class="ledger-right">
+                        <span class="item-val">- ${formatRupiah(item.amount)}</span>
+                        <button class="btn-trash" data-id="${item.id}"><i class="fa-solid fa-square-minus"></i></button>
+                    </div>
+                `;
+                historyList.appendChild(li);
+            });
+
+            document.querySelectorAll('.btn-trash').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const itemId = btn.getAttribute('data-id');
+                    const backup = globalExpenses.find(x => x.id === itemId);
+                    if(backup) {
+                        lastDeletedItemCache = { name: backup.name, category: backup.category, amount: backup.amount, date: backup.date };
+                        triggerToast("Transaksi di-delete.", true);
+                    }
+                    remove(ref(db, `users/${userUID}/expenses/${itemId}`));
+                });
+            });
+        }
+
+        toastUndoAction.addEventListener('click', () => {
+            if (!userUID || !lastDeletedItemCache) return;
+            push(ref(db, `users/${userUID}/expenses`), lastDeletedItemCache).then(() => {
+                lastDeletedItemCache = null;
+                systemToast.classList.remove('active');
+                triggerToast("Rollback Data Sukses!");
+            });
+        });
+
+        expenseForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!userUID) return;
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('id-ID', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+
+            let cleanAmount = parseInt(expenseAmount.value.replace(/\D/g, ""));
+            if (isNaN(cleanAmount) || cleanAmount <= 0) return triggerToast("Nominal tidak valid!");
+
+            let rawName = expenseName.value.trim().replace(/\s+/g, ' ');
+            let formattedName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+
+            push(ref(db, `users/${userUID}/expenses`), {
+                name: formattedName,
+                category: expenseCategory.value,
+                amount: cleanAmount,
+                date: formattedDate
+            }).then(() => { expenseForm.reset(); triggerToast("Transaksi tersimpan!"); }).catch(err => triggerToast(err.message));
+        });
+
+        document.getElementById('btn-set-income').addEventListener('click', () => {
+            const val = prompt("Set Alokasi Dana Masuk Likuiditas (Rp):", totalIncomeRef);
+            if (val !== null && !isNaN(parseInt(val))) update(ref(db, `users/${userUID}`), { totalIncome: parseInt(val) }).then(() => triggerToast("Saldo Ter-update!"));
+        });
+
+        document.getElementById('btn-set-limit').addEventListener('click', () => {
+            const val = prompt("Set Batasan Safety Limit Belanja (Rp):", currentBudgetLimit);
+            if (val !== null && !isNaN(parseInt(val))) update(ref(db, `users/${userUID}`), { budgetLimit: parseInt(val) }).then(() => triggerToast("Limit Diaktifkan!"));
+        });
+
+        document.getElementById('btn-set-goal').addEventListener('click', () => {
+            const val = prompt("Tentukan Target Celengan Tabungan (Rp):", savingsGoalRef);
+            if (val !== null && !isNaN(parseInt(val))) update(ref(db, `users/${userUID}`), { savingsGoal: parseInt(val) }).then(() => triggerToast("Target Diperbarui!"));
+        });
+
+        searchBar.addEventListener('input', (e) => { liveSearchQuery = e.target.value; renderFilteredHistory(); });
+
+        categoryFilterTabs.querySelectorAll('.tab-item').forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryFilterTabs.querySelector('.tab-item.active').classList.remove('active');
+                btn.classList.add('active');
+                activeFilter = btn.getAttribute('data-filter');
+                renderFilteredHistory();
+            });
+        });
+
+        function renderChart(categoryTotals, total) {
+            progressContainer.innerHTML = ''; legendGrid.innerHTML = '';
+            Object.keys(categoryTotals).forEach(cat => {
+                const amount = categoryTotals[cat];
+                if (amount > 0) {
+                    const pct = (amount / total) * 100;
+                    const segment = document.createElement('div');
+                    segment.classList.add('chart-chunk');
+                    segment.style.width = `${pct}%`;
+                    segment.style.backgroundColor = categoryColors[cat];
+                    progressContainer.appendChild(segment);
+
+                    const legend = document.createElement('div');
+                    legend.classList.add('legend-node');
+                    legend.innerHTML = `<span class="legend-circle" style="background-color: ${categoryColors[cat]}"></span> ${cat} (${pct.toFixed(0)}%)`;
+                    legendGrid.appendChild(legend);
+                }
+            });
+        }
+
+        btnExportCsv.addEventListener('click', () => {
+            if (globalExpenses.length === 0) return triggerToast("Data log kosong!");
+            let csv = "data:text/csv;charset=utf-8,Deskripsi,Kategori,Tanggal,Nominal (IDR)\n";
+            globalExpenses.forEach(exp => { csv += `"${exp.name}","${exp.category}","${exp.date}",${exp.amount}\n`; });
+            const link = document.createElement("a");
+            link.setAttribute("href", encodeURI(csv)); link.setAttribute("download", "FaCashID_Database_Logs.csv");
+            document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        });
+    </script>
+</body>
+</html>
